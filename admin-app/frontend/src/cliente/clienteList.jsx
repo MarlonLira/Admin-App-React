@@ -25,8 +25,8 @@ export default props => {
     <table className='table'>
       <thead>
         <tr>
-          <th>Produtos</th>
-          <th>Valor</th>
+          <th>Clientes</th>
+          <th>Telefones</th>
           <th className='tableActions'> Ações</th>
         </tr>
       </thead>

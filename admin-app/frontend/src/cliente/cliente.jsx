@@ -5,7 +5,7 @@ import PageHeader from '../template/pageHeader'
 import ClienteForm from './clienteForm'
 import ClienteList from './clienteList'
 
-const URL = 'http://localhost:3003/api/todos'
+const URL = 'http://localhost:3003/api/cliente'
 
 export default class Cliente extends Component {
   constructor(props) {
@@ -57,14 +57,14 @@ export default class Cliente extends Component {
         .then(resp => this.refresh(this.state.name))
   }
   
-  handleMarkAsDone(cliente) {
+  handleMarkAsDoneName(cliente) {
     axios.put(`${URL}/${cliente._id}`, { ...cliente, done: true })
         .then(resp => this.refresh(this.state.name))
   }
 
-  handleMarkAsDone2(cliente) {
+  handleMarkAsDonePhone(cliente) {
     axios.put(`${URL}/${cliente._id}`, { ...cliente, done: true })
-        .then(resp => this.refresh(this.state.name))
+        .then(resp => this.refresh(this.state.phone))
   }
 
   handleMarkAsPending(cliente) {
@@ -81,17 +81,17 @@ export default class Cliente extends Component {
       <div>
         <PageHeader name='Cadastro de Clientes' ></PageHeader>
         <ClienteForm 
-          description={this.state.name}
-          value={this.state.phone}
-          handleChange={this.handleChangeName}
-          handleChange2={this.handleChangePhone}
+          name={this.state.name}
+          phone={this.state.phone}
+          handleChangeName={this.handleChangeName}
+          handleChangePhone={this.handleChangePhone}
           handleAdd={this.handleAdd} 
           handleSearch={this.handleSearch}
           handleClear={this.handleClear} />
         <ClienteList 
           list={this.state.list}
-          handleMarkAsDone={this.handleMarkAsDoneName}
-          handleMarkAsDone2={this.handleMarkAsDonePhone}
+          handleMarkAsDoneName={this.handleMarkAsDoneName}
+          handleMarkAsDonePhone={this.handleMarkAsDonePhone}
           handleMarkAsPending={this.handleMarkAsPending}
           handleRemove={this.handleRemove} />
       </div>
