@@ -1,20 +1,23 @@
 import React from 'react'
 
-export default props => (
-  <nav className='navbar navbar-inverse bg-inverse'>
-    <div className='container'>
-      <div className='navbar-header'>
-        <a className='navbar-brand' href='#'>
-          <i className='fa fa-calendar-check-o'></i> Admin
-        </a>
-      </div>
+import MenuItem from './menuItem'
+import MenuTree from './menuTree'
 
-      <div id='navbar' className='navbar-collapse collapse'>
-        <ul className="nav navbar-nav">
-          <li><a href='#/todo'>Produtos</a></li>
-          <li><a href='#/cliente'>Clientes</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+
+export default props => (
+  <ul className='sidebar-menu'>
+    <MenuItem path='#' label='Dashboard' icon='dashboard'/>
+
+    <MenuTree label='Clientes' icon='users'>
+      <MenuItem path='#/customerBase' label='Manutenção de Clientes' icon='user-plus'/>{/* gear  */}
+    </MenuTree>
+
+    <MenuTree label='Produtos' icon='table'>
+      <MenuItem path='#/productBase' label='Manutenção de Produtos' icon='plus'/>
+    </MenuTree>
+
+    <MenuTree label='Vendas' icon='dollar'>
+      <MenuItem path='#/salesBase' label='Manutenção de Vendas' icon='credit-card'/>
+    </MenuTree>
+  </ul>
 )
