@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 
-import ContenteHeader from '../common/template/contentHeader'
+import ContenteHeader from '../../common/template/contentHeader'
 
-class ProductBase extends Component {
+class product extends Component {
   render(){
     return(
       <div>

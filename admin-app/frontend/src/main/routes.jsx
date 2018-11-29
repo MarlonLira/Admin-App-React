@@ -1,20 +1,17 @@
 import React from 'react'
-import { Router, Route, Redirect, hashHistory } from 'react-router'
+import {Router, Route, Redirect, hashHistory} from 'react-router'
 
-import Todo from '../todo/todo'
-import Cliente from '../cliente/cliente'
-import Dashboard from '../dashboard/dashboard'
-import CustomerBase from '../customerBase/customerBase'
-import ProductBase from '../productBase/productBase'
-import SalesBase from '../salesBase/salesBase'
-
+import Dashboard from '../main/dashboard/dashboard'
+import Client from '../entity/client/client'
+import Product from '../entity/product/product'
+import Sale from '../entity/sale/sale'
 
 export default props => (
   <Router history={hashHistory}>
-    <Route path='/' component={Dashboard} />
-    <Route path='/customerBase' component={CustomerBase}/>
-    <Route path='/productBase' component={ProductBase}/>
-    <Route path='/salesBase' component={SalesBase}/>
-    <Redirect from='*' to='/' />
+    <Route path='/' component={Dashboard}/>
+    <Route path='/Client' component={Client}/>
+    <Route path='/product' component={Product}/>
+    <Route path='/Sale' component={Sale}/>
+    <Redirect from='*' to='/'/>
   </Router>
 )
