@@ -6,7 +6,7 @@ import Tabs from '../../common/tab/tabs'
 import TabsHeader from '../../common/tab/tabsHeader'
 import TabsContent from '../../common/tab/tabsContent'
 
-class client extends Component {
+class Client extends Component {
   render(){
     return(
       <div>
@@ -26,4 +26,4 @@ class client extends Component {
   }
 }
 
-export default CustomerBase
+export default Client

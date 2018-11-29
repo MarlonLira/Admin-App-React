@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import ContenteHeader from '../../common/template/contentHeader'
 
-class product extends Component {
+class Product extends Component {
   render(){
     return(
       <div>
@@ -12,4 +12,4 @@ class product extends Component {
   }
 }
 
-export default ProductBase
+export default Product

@@ -10,7 +10,7 @@ class Dashboard extends Component {
   render(){
     return(
       <div>
-        <ContenteHeader title='Dashboard'/>
+        <ContenteHeader title='Histórico Mensal'/>
         <Content>
           <Row>
             <ValueBox cols='12 4' color='green' icon='money' value='300' text='Novas vendas neste mês!'/>
