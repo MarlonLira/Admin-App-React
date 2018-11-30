@@ -9,7 +9,8 @@ export default props => (
         <MenuItem path='#' label='Inicio' icon='dashboard'/>
 
         <MenuTree label='Clientes' icon='users'>
-            <MenuItem path='#/client' label='Manutenção de Clientes' icon='user-plus'/>{/* gear  */}
+            <MenuItem path='#/client' label='Manutenção de Clientes' icon='user-plus'/>
+            <MenuItem path='#/clientSearch' label='Pesquisa de Clientes' icon='user-plus'/>
         </MenuTree>
 
         <MenuTree label='Produtos' icon='table'>
