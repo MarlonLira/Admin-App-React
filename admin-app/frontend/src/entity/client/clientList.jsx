@@ -22,6 +22,8 @@ export default props => {
   }
 
   return (
+
+    
     <table className='table'>
       <thead>
         <tr>

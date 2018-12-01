@@ -3,3 +3,13 @@
     bottom: 0px;
     width: 100%;
 }
+
+.wrapper1 {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar.active {
+    margin-left: -250px;
+}

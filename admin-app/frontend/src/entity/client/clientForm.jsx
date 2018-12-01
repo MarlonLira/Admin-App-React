@@ -14,7 +14,7 @@ export default props => {
   return (
     <div role='form' className='clienteForm'>
     <br/>
-      <Grid cols='9 6 3'>
+      <Grid cols='12 6 3'>
          Nome: <input id='description' className='form-control'
           placeholder='Nome do Cliente'
           onChange={props.handleChangeName}
@@ -22,7 +22,7 @@ export default props => {
           value={props.name}></input>
       </Grid>
 
-      <Grid cols='9 6 3'>
+      <Grid cols='12 6 3'>
          Email: <input id='value' className='form-control'
           placeholder='Email'
           onChange={props.handleChangeEmail}
@@ -30,61 +30,22 @@ export default props => {
           value={props.Email}></input>
       </Grid>
 
-      <Grid cols='9 6 3'>
+      <Grid cols='12 6 3'>
          Telefone: <input id='value' className='form-control'
           placeholder='Telefone do Cliente'
           onChange={props.handleChangePhone}
           onKeyUp={keyHandler}
           value={props.phone}></input>
       </Grid>
-
-      <Grid cols='9 6 3'>
-         Data de Nascimento: <input id='value' className='form-control'
-          placeholder=''
-          onChange={props.handleChangePhone}
-          onKeyUp={keyHandler}
-          value={props.phone}></input>
-      </Grid>
-
-      <Grid cols='9 6 3'>
-         Teste: <input id='value' className='form-control'
-          placeholder=''
-          onChange={props.handleChangePhone}
-          onKeyUp={keyHandler}
-          value={props.phone}></input>
-      </Grid>
-
-      <Grid cols='9 6 3'>
-         Teste: <input id='value' className='form-control'
-          placeholder=''
-          onChange={props.handleChangePhone}
-          onKeyUp={keyHandler}
-          value={props.phone}></input>
-      </Grid>
-
-      <Grid cols='9 6 3'>
-         Teste: <input id='value' className='form-control'
-          placeholder=''
-          onChange={props.handleChangePhone}
-          onKeyUp={keyHandler}
-          value={props.phone}></input>
-      </Grid>
-      
-      <Grid cols='9 6 3'>
-         Teste: <input id='value' className='form-control'
-          placeholder=''
-          onChange={props.handleChangePhone}
-          onKeyUp={keyHandler}
-          value={props.phone}></input>
-      </Grid>
       
       <Grid cols='12 3 2'>
+        <br/>
         <IconButton style='primary' icon='plus'
           onClick={props.handleAdd}> </IconButton>
-        <IconButton style='info' icon='search'
+        {/*<IconButton style='info' icon='search'
           onClick={props.handleSearch}></IconButton>
-        <IconButton style='default' icon='close'
-          onClick={props.handleClear}></IconButton>
+          <IconButton style='default' icon='close'
+          onClick={props.handleClear}></IconButton>*/}
       </Grid>
     </div>
     
