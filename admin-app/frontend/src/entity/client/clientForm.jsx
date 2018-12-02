@@ -5,7 +5,8 @@ import IconButton from '../../common/template/iconButton'
 export default props => {
   const keyHandler = (e) => {
     if (e.key === 'Enter') {
-      e.shiftKey ? props.handleSearch() : props.handleAdd()
+      console.log(props)
+      {/*e.shiftKey ? props.handleSearch() : props.handleAdd()*/}
     } else if (e.key === 'Escape') {
       props.handleClear()
     }
@@ -27,7 +28,7 @@ export default props => {
           placeholder='Email'
           onChange={props.handleChangeEmail}
           onKeyUp={keyHandler}
-          value={props.Email}></input>
+          value={props.email}></input>
       </Grid>
 
       <Grid cols='12 6 3'>

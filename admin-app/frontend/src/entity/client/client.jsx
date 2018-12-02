@@ -7,7 +7,7 @@ import ClientList from './clientList'
 
 const URL = 'http://localhost:3003/api/client'
 
-export default class Cliente extends Component {
+export default class Client extends Component {
   constructor(props) {
     super(props)
     this.state = { name: '', phone: '', list: [] }
@@ -53,6 +53,7 @@ export default class Cliente extends Component {
   }
 
   handleAdd() {
+    console.log(props)
     const name = this.state.name.toUpperCase()
     const phone = this.state.phone
     const email = this.state.email
@@ -61,28 +62,28 @@ export default class Cliente extends Component {
         .then(resp => this.refresh())
   }
 
-  handleRemove(cliente) {
-    axios.delete(`${URL}/${cliente._id}`)
+  handleRemove(client) {
+    axios.delete(`${URL}/${client._id}`)
         .then(resp => this.refresh(this.state.name))
   }
   
-  handleMarkAsDoneName(cliente) {
-    axios.put(`${URL}/${cliente._id}`, { ...cliente, done: true })
+  handleMarkAsDoneName(client) {
+    axios.put(`${URL}/${client._id}`, { ...client, done: true })
         .then(resp => this.refresh(this.state.name))
   }
 
-  handleMarkAsDoneEmail(cliente) {
-    axios.put(`${URL}/${cliente._id}`, { ...cliente, done: true })
+  handleMarkAsDoneEmail(client) {
+    axios.put(`${URL}/${client._id}`, { ...client, done: true })
         .then(resp => this.refresh(this.state.email))
   }
 
-  handleMarkAsDonePhone(cliente) {
-    axios.put(`${URL}/${cliente._id}`, { ...cliente, done: true })
+  handleMarkAsDonePhone(client) {
+    axios.put(`${URL}/${client._id}`, { ...client, done: true })
         .then(resp => this.refresh(this.state.phone))
   }
 
-  handleMarkAsPending(cliente) {
-    axios.put(`${URL}/${cliente._id}`, { ...cliente, done: false })
+  handleMarkAsPending(client) {
+    axios.put(`${URL}/${client._id}`, { ...client, done: false })
         .then(resp => this.refresh(this.state.name))
   }
 

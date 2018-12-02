@@ -11,6 +11,7 @@ import ClientForm from './clientForm'
 
 class ClientRegister extends Component {
   render(){
+    
     return(
       <div>
         <ContenteHeader title='Manutenção de Clientes'/>

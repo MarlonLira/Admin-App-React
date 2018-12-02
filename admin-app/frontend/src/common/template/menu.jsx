@@ -5,7 +5,7 @@ import MenuTree from './menuTree'
 
 
 export default props => (
-  <div class="wrapper1">
+  <div className="wrapper1">
     <ul className='sidebar-menu'>
       <MenuItem path='#' label='Inicio' icon='dashboard'/>
 
