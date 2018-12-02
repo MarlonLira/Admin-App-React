@@ -1,23 +1,25 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import PageHeader from '../../common/template/pageheader'
-import ClientForm from './clientForm'
-import ClientRegister from './clientRegister'
+import ContenteHeader from '../../common/template/contentHeader'
+import Content from '../../common/template/content'
+import Tabs from '../../common/tab/tabs'
+import TabsHeader from '../../common/tab/tabsHeader'
+import TabsContent from '../../common/tab/tabsContent'
 import ClientList from './clientList'
+import ClientFind from './clientFind'
 
 const URL = 'http://localhost:3003/api/client'
 
-export default class Client extends Component {
+
+class ClientSearch extends Component {
+
   constructor(props) {
     super(props)
     this.state = { name: '', phone: '', list: [] }
 
     this.handleChangeName = this.handleChangeName.bind(this)
-    this.handleChangePhone = this.handleChangePhone.bind(this)
-    this.handleChangeEmail = this.handleChangeEmail.bind(this)
-
-    this.handleAdd = this.handleAdd.bind(this)
+    
     this.handleSearch = this.handleSearch.bind(this)
     this.handleClear = this.handleClear.bind(this)
 
@@ -28,7 +30,7 @@ export default class Client extends Component {
     this.handleMarkAsPending = this.handleMarkAsPending.bind(this)
     this.handleRemove = this.handleRemove.bind(this)
 
-    this.refresh()
+    {/*this.refresh()*/}
   }
 
   refresh(name = '', phone = '', email = '') {
@@ -51,15 +53,6 @@ export default class Client extends Component {
 
   handleChangeEmail(e) {
     this.setState({...this.state, email: e.target.value})
-  }
-
-  handleAdd() {
-    const name = this.state.name.toUpperCase()
-    const phone = this.state.phone
-    const email = this.state.email
-    
-    axios.post(URL, { name, phone, email })
-        .then(resp => this.refresh())
   }
 
   handleRemove(client) {
@@ -90,36 +83,47 @@ export default class Client extends Component {
   handleClear() {
     this.refresh()
   }
-
-  render() {
-    return (
+  render(){
+    return(
       <div>
-        {/*<PageHeader name='Cadastro de Clientes' ></PageHeader>*/}
+        <ContenteHeader title='Pesquisa de Clientes'/>
+        <Content>
+          <Tabs>
+            <TabsHeader>
+              
+              <ClientFind
+              
+              name={this.state.name}
 
-        <ClientForm 
-          name={this.state.name}
-          phone={this.state.phone}
-          email={this.state.email}
+              handleChangeName={this.handleChangeName}
 
-          handleChangeName={this.handleChangeName}
-          handleChangePhone={this.handleChangePhone}
-          handleChangeEmail={this.handleChangeEmail}
+              handleAdd={this.handleAdd} 
+              handleSearch={this.handleSearch}
+              handleClear={this.handleClear}
+              
+              />
+              
+            </TabsHeader>
+            
+            <TabsContent>
 
-          handleAdd={this.handleAdd} 
-          handleSearch={this.handleSearch}
-          handleClear={this.handleClear} />
-
-        {/*<ClientList 
-          list={this.state.list}
+              <ClientList 
+              list={this.state.list}
           
           handleMarkAsDoneName={this.handleMarkAsDoneName}
           handleMarkAsDonePhone={this.handleMarkAsDonePhone}
           handleMarkAsDoneEmail={this.handleMarkAsDoneEmail}
 
           handleMarkAsPending={this.handleMarkAsPending}
-        handleRemove={this.handleRemove} />*/}
+          handleRemove={this.handleRemove} />
+
+            </TabsContent>
+
+          </Tabs>
+        </Content>
       </div>
     )
   }
-
 }
+
+export default ClientSearch

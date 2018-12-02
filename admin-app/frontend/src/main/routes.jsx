@@ -2,11 +2,10 @@ import React from 'react'
 import {Router, Route, Redirect, hashHistory} from 'react-router'
 
 import Dashboard from '../main/dashboard/dashboard'
-import ClientSearch from '../entity/client/clientSearch'
+import ClientSearch from '../entity/client/clientSearch1'
 import Product from '../entity/product/product'
 import Sale from '../entity/sale/sale'
 import ClientRegister from '../entity/client/clientRegister'
-
 
 export default props => (
   <Router history={hashHistory}>

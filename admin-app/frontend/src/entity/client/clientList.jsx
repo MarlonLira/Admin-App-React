@@ -8,6 +8,7 @@ export default props => {
     return list.map(cliente => (
       <tr key={cliente._id}>
         <td className={cliente.done ? 'markedAsDoneName' : ''}>{cliente.name}</td>
+        <td className={cliente.done ? 'markedAsDoneEmail' : ''}>{cliente.email}</td>
         <td className={cliente.done ? 'markedAsDonePhone' : ''}>{cliente.phone}</td>
         <td>
           <IconButton style='success' icon='check' hide={cliente.done}
@@ -22,8 +23,6 @@ export default props => {
   }
 
   return (
-
-    
     <table className='table'>
       <thead>
         <tr>

@@ -5,7 +5,7 @@ import Content from '../../common/template/content'
 import Tabs from '../../common/tab/tabs'
 import TabsHeader from '../../common/tab/tabsHeader'
 import TabsContent from '../../common/tab/tabsContent'
-import ClientForm from './clientForm'
+import Client from './client'
 
 
 
@@ -19,7 +19,7 @@ class ClientRegister extends Component {
           <Tabs>
             <TabsHeader>
               
-              <ClientForm />
+              <Client />
 
             </TabsHeader>
 
