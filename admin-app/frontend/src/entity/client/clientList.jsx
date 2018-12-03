@@ -5,18 +5,18 @@ export default props => {
 
   const renderRows = () => {
     const list = props.list || []
-    return list.map(cliente => (
-      <tr key={cliente._id}>
-        <td className={cliente.done ? 'markedAsDoneName' : ''}>{cliente.name}</td>
-        <td className={cliente.done ? 'markedAsDoneEmail' : ''}>{cliente.email}</td>
-        <td className={cliente.done ? 'markedAsDonePhone' : ''}>{cliente.phone}</td>
+    return list.map(client => (
+      <tr key={client._id}>
+        <td className={client.done ? 'markedAsDoneName' : ''}>{client.name}</td>
+        <td className={client.done ? 'markedAsDoneEmail' : ''}>{client.email}</td>
+        <td className={client.done ? 'markedAsDonePhone' : ''}>{client.phone}</td>
         <td>
-          <IconButton style='success' icon='check' hide={cliente.done}
-            onClick={() => props.handleMarkAsDone(cliente)}></IconButton>
-          <IconButton style='warning' icon='undo' hide={!cliente.done} 
-            onClick={() => props.handleMarkAsPending(cliente)}></IconButton>
-          <IconButton style='danger' icon='trash-o' hide={!cliente.done} 
-            onClick={() => props.handleRemove(cliente)}></IconButton>
+          <IconButton style='success' icon='check' hide={client.done}
+            onClick={() => props.handleMarkAsDone(client)}></IconButton>
+          <IconButton style='warning' icon='undo' hide={!client.done} 
+            onClick={() => props.handleMarkAsPending(client)}></IconButton>
+          <IconButton style='danger' icon='trash-o' hide={!client.done} 
+            onClick={() => props.handleRemove(client)}></IconButton>
         </td>
       </tr>
     ))

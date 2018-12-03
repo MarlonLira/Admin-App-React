@@ -13,11 +13,11 @@ export default props => {
   }
 
   return (
-    <div role='form' className='clienteForm'>
+    <div role='form' className='productForm'>
     <br/>
       <Grid cols='12 6 3'>
           <input id='name' className='form-control'
-          placeholder='Nome do Cliente'
+          placeholder='Nome do Produto'
           onChange={props.handleChangeName}
           onKeyUp={keyHandler}
           value={props.name}
@@ -26,21 +26,21 @@ export default props => {
       </Grid>
 
       <Grid cols='12 6 3'>
-          <input id='email' className='form-control'
-          placeholder='Email'
-          onChange={props.handleChangeEmail}
+          <input id='amount' className='form-control'
+          placeholder='Quantidade'
+          onChange={props.handleChangeAmount}
           onKeyUp={keyHandler}
-          value={props.email}
+          value={props.amount}
           />
           <br/>
       </Grid>
 
       <Grid cols='12 6 3'>
-          <input id='phone' className='form-control'
-          placeholder='Telefone do Cliente'
-          onChange={props.handleChangePhone}
+          <input id='price' className='form-control'
+          placeholder='Preço'
+          onChange={props.handleChangePrice}
           onKeyUp={keyHandler}
-          value={props.phone}
+          value={props.price}
           />
           <br/>
       </Grid>

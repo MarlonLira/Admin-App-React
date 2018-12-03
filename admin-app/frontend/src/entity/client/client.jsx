@@ -1,17 +1,19 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 
-import PageHeader from '../../common/template/pageheader'
 import ClientForm from './clientForm'
-import ClientRegister from './clientRegister'
 import ClientList from './clientList'
+import Content from '../../common/template/content'
+import Tabs from '../../common/tab/tabs'
+import TabsHeader from '../../common/tab/tabsHeader'
+import TabsContent from '../../common/tab/tabsContent'
 
 const URL = 'http://localhost:3003/api/client'
 
 export default class Client extends Component {
   constructor(props) {
     super(props)
-    this.state = { name: '', phone: '', list: [] }
+    this.state = { name: '', phone: '', email: '', list: [] }
 
     this.handleChangeName = this.handleChangeName.bind(this)
     this.handleChangePhone = this.handleChangePhone.bind(this)
@@ -21,6 +23,7 @@ export default class Client extends Component {
     this.handleSearch = this.handleSearch.bind(this)
     this.handleClear = this.handleClear.bind(this)
 
+    this.handleMarkAsDone = this.handleMarkAsDone.bind(this)
     this.handleMarkAsDoneName = this.handleMarkAsDoneName.bind(this)
     this.handleMarkAsDonePhone = this.handleMarkAsDonePhone.bind(this)
     this.handleMarkAsDoneEmail = this.handleMarkAsDoneEmail.bind(this)
@@ -28,7 +31,7 @@ export default class Client extends Component {
     this.handleMarkAsPending = this.handleMarkAsPending.bind(this)
     this.handleRemove = this.handleRemove.bind(this)
 
-    this.refresh()
+    {/*this.refresh()*/}
   }
 
   refresh(name = '', phone = '', email = '') {
@@ -66,7 +69,12 @@ export default class Client extends Component {
     axios.delete(`${URL}/${client._id}`)
         .then(resp => this.refresh(this.state.name))
   }
-  
+
+  handleMarkAsDone(client) {
+    axios.put(`${URL}/${client._id}`, { ...client, done: true })
+        .then(resp => this.refresh(this.state.name))
+  }
+
   handleMarkAsDoneName(client) {
     axios.put(`${URL}/${client._id}`, { ...client, done: true })
         .then(resp => this.refresh(this.state.name))
@@ -94,8 +102,6 @@ export default class Client extends Component {
   render() {
     return (
       <div>
-        {/*<PageHeader name='Cadastro de Clientes' ></PageHeader>*/}
-
         <ClientForm 
           name={this.state.name}
           phone={this.state.phone}
@@ -107,17 +113,32 @@ export default class Client extends Component {
 
           handleAdd={this.handleAdd} 
           handleSearch={this.handleSearch}
-          handleClear={this.handleClear} />
+          handleClear={this.handleClear} 
+        />
+        
+         <div>
+          <Content>
+            <Tabs>
+              <TabsContent>
+              <TabsHeader>
+                
+              </TabsHeader>
+                <ClientList 
+                  list={this.state.list}
+                  
+                  handleMarkAsDone={this.handleMarkAsDone}
 
-        {/*<ClientList 
-          list={this.state.list}
-          
-          handleMarkAsDoneName={this.handleMarkAsDoneName}
-          handleMarkAsDonePhone={this.handleMarkAsDonePhone}
-          handleMarkAsDoneEmail={this.handleMarkAsDoneEmail}
+                  handleMarkAsDoneName={this.handleMarkAsDoneName}
+                  handleMarkAsDonePhone={this.handleMarkAsDonePhone}
+                  handleMarkAsDoneEmail={this.handleMarkAsDoneEmail}
 
-          handleMarkAsPending={this.handleMarkAsPending}
-        handleRemove={this.handleRemove} />*/}
+                  handleMarkAsPending={this.handleMarkAsPending}
+                  handleRemove={this.handleRemove} 
+                />
+              </TabsContent>
+            </Tabs>
+          </Content>
+         </div>
       </div>
     )
   }

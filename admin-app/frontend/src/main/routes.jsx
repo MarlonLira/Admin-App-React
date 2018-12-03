@@ -2,18 +2,16 @@ import React from 'react'
 import {Router, Route, Redirect, hashHistory} from 'react-router'
 
 import Dashboard from '../main/dashboard/dashboard'
-import ClientSearch from '../entity/client/clientSearch1'
-import Product from '../entity/product/product'
+import ProductRegister from '../entity/product/productRegister'
 import Sale from '../entity/sale/sale'
 import ClientRegister from '../entity/client/clientRegister'
 
 export default props => (
   <Router history={hashHistory}>
     <Route path='/' component={Dashboard}/>
-    <Route path='/ClientRegister' component={ClientRegister}/>
-    <Route path= '/ClientSearch' component={ClientSearch} />
-    <Route path='/product' component={Product}/>
-    <Route path='/Sale' component={Sale}/>
+    <Route path='/clientRegister' component={ClientRegister}/>
+    <Route path='/productRegister' component={ProductRegister}/>
+    <Route path='/sale' component={Sale}/>
     <Redirect from='*' to='/'/>
   </Router>
 )

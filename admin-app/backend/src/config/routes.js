@@ -6,9 +6,9 @@ module.exports = function(server) {
     const router = express.Router()
     server.use('/api', router)
 
-    //TODO Routes
-    const todoService = require('../api/todo/todoService')
+    //product Routes
+    const productService = require('../api/product/productService')
     const clienteService = require ('../api/client/clientService')
-    todoService.register(router, '/todos')
+    productService.register(router, '/product')
     clienteService.register(router, '/client')
 }
