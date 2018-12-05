@@ -59,7 +59,7 @@ export default class Client extends Component {
   handleAdd() {
     const name = this.state.name.toUpperCase()
     const phone = this.state.phone
-    const email = this.state.email
+    const email = this.state.email.toUpperCase()
     
     axios.post(URL, { name, phone, email })
         .then(resp => this.refresh())
