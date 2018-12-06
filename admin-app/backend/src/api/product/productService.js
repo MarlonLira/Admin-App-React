@@ -1,6 +1,6 @@
-const product = require('./product')
+const Product = require('./product')
 
-product.methods(['get', 'post', 'put', 'delete'])
-product.updateOptions({new: true, runValidators: true})
+Product.methods(['get', 'post', 'put', 'delete'])
+Product.updateOptions({new: true, runValidators: true})
 
-module.exports = product
+module.exports = Product

@@ -13,7 +13,7 @@ const URL = 'http://localhost:3003/api/product'
 export default class Product extends Component {
   constructor(props) {
     super(props)
-    this.state = {edit: false, name: '', amount: '', price: '', list: []}
+    this.state = { name: '', amount: '', price: '', list: []}
 
     this.handleChangePrice = this.handleChangePrice.bind(this)
     this.handleChangeAmount = this.handleChangeAmount.bind(this)
@@ -23,7 +23,6 @@ export default class Product extends Component {
     this.handleAdd = this.handleAdd.bind(this)
     this.handleSearch = this.handleSearch.bind(this)
     this.handleClear = this.handleClear.bind(this)
-    this.handleChange = this.handleChange.bind(this)
 
     this.handleMarkAsDone = this.handleMarkAsDone.bind(this)
     this.handleMarkAsDoneName = this.handleMarkAsDoneName.bind(this)
@@ -61,22 +60,10 @@ export default class Product extends Component {
   handleAdd() {
     const name = this.state.name.toUpperCase()
     const amount = this.state.amount
-    const price = "R$ " + this.state.price.toUpperCase()
-    const _id = this.state._id
-    const edit = this.state.edit
-
-    if(edit == false){
-      axios.post(URL, { name, amount, price })
+    const price = "R$ " + this.state.price.replace(",",".")
+    
+    axios.post(URL, { name, amount, price })
         .then(resp => this.refresh())
-    }else if (edit == true){
-      this.setState({...this.state, edit: false})
-      axios.delete(`${URL}/${_id}`)
-        .then(resp => this.handleAdd())
-    }
-  }
-
-  handleChange({_id, name, amount, price}){
-    this.setState({...this.state, edit: true, _id, name, amount, price})
   }
 
   handleRemove(product) {
@@ -116,8 +103,7 @@ export default class Product extends Component {
   render() {
     return (
       <div>
-        <ProductForm
-          edit={this.state.edit} 
+        <ProductForm 
           name={this.state.name}
           amount={this.state.amount}
           price={this.state.price}
@@ -142,7 +128,6 @@ export default class Product extends Component {
                   list={this.state.list}
                   
                   handleMarkAsDone={this.handleMarkAsDone}
-                  handleChange={this.handleChange}
 
                   handleMarkAsDoneName={this.handleMarkAsDoneName}
                   handleMarkAsDoneAmount={this.handleMarkAsDoneAmount}

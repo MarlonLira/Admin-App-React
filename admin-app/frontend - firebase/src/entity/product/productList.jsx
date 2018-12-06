@@ -17,8 +17,6 @@ export default props => {
             onClick={() => props.handleMarkAsPending(product)}></IconButton>
           <IconButton style='danger' icon='trash-o' hide={!product.done} 
             onClick={() => props.handleRemove(product)}></IconButton>
-            <IconButton style='primary' icon='pencil' hide={!product.done} 
-            onClick={() => props.handleChange({_id: product._id, name: product.name, amount: product.amount, price: product.price})}/>
         </td>
       </tr>
     ))

@@ -12,13 +12,13 @@ export default props => {
         <td className={client.done ? 'markedAsDonePhone' : ''}>{client.phone}</td>
         <td>
           <IconButton style='success' icon='check' hide={client.done}
-            onClick={() => props.handleMarkAsDone(client)}/>
-          <IconButton style='warning' icon='undo' hide={!client.done} 
-            onClick={() => props.handleMarkAsPending(client)}/>
-          <IconButton style='danger' icon='trash-o' hide={!client.done} 
-            onClick={() => props.handleRemove(client)}/>
-          <IconButton style='primary' icon='pencil' hide={!client.done} 
-            onClick={() => props.handleChange({ _id: client._id, name: client.name, phone: client.phone, email: client.email})}/>
+            onClick={() => props.handleMarkAsDone(client)}></IconButton>
+          <IconButton style='warning' icon='undo' hide={!client.done}
+            onClick={() => props.handleMarkAsPending(client)}></IconButton>
+          <IconButton style='danger' icon='trash-o' hide={!client.done}
+            onClick={() => props.handleRemove(client)}></IconButton>
+          <IconButton style='primary' icon='pencil' hide={!client.done}
+            onClick={() => props.handleChangeEdit({ _id: client._id, name: client.name, phone: client.phone, email: client.email})}/>
         </td>
       </tr>
     ))

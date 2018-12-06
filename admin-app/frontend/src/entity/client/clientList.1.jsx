@@ -1,7 +1,11 @@
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
+
 import React from 'react'
 import IconButton from '../../common/template/iconButton'
+import { markAsDone, markAsPending, remove } from './clientActions'
 
-export default props => {
+const ClientList = props => {
 
   const renderRows = () => {
     const list = props.list || []
@@ -18,7 +22,7 @@ export default props => {
           <IconButton style='danger' icon='trash-o' hide={!client.done} 
             onClick={() => props.handleRemove(client)}/>
           <IconButton style='primary' icon='pencil' hide={!client.done} 
-            onClick={() => props.handleChange({ _id: client._id, name: client.name, phone: client.phone, email: client.email})}/>
+            onClick={() => props.handleChange({_id: client._id, name: client.name, phone: client.phone, email: client.email})}/>
         </td>
       </tr>
     ))
@@ -40,3 +44,8 @@ export default props => {
     </table>
   )
 }
+
+const mapStateToProps = state => ({list: state.client.list})
+const mapDispatchToProps = dispatch => 
+    bindActionCreators({ markAsDone, markAsPending, remove }, dispatch)
+export default connect(mapStateToProps, mapDispatchToProps)(ClientList)
