@@ -30,16 +30,6 @@ class ClientForm extends Component {
       return (
         <div role='form' className='clienteForm'>
           <br/>
-          <Grid cols='12 6 3'>
-            <input id='_id' className='form-control'
-            placeholder='id'
-            onKeyUp={this.keyHandler}
-            value={this.props._id}
-            type="hidden"
-            />
-            <br/>
-          </Grid>
-
             <Grid cols='12 6 3'>
               <input id='name' className='form-control'
               placeholder='Nome do Cliente'
@@ -83,6 +73,15 @@ class ClientForm extends Component {
                 <br/>
                 <br/>
             </Grid>
+            <Grid cols='12 6 3'>
+              <input id='_id' className='form-control'
+                placeholder='id'
+                onKeyUp={this.keyHandler}
+                value={this.props._id}
+                type="hidden"
+              />
+              <br/>
+          </Grid>
       </div>
     )
   }

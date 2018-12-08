@@ -9,9 +9,9 @@ module.exports = function(server) {
     //product Routes
     const productService = require('../api/product/productService')
     const clienteService = require ('../api/client/clientService')
-    const todoService = require ('../api/todo/todoService')
+    const cycleService = require ('../api/cycles/cycleService')
     
     productService.register(router, '/product')
     clienteService.register(router, '/client')
-    todoService.register(router, '/todo')
+    cycleService.register(router, '/cycles')
 }

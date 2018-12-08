@@ -30,15 +30,6 @@ class ProductForm extends Component {
       <div role='form' className='productForm'>
       <br/>
         <Grid cols='12 6 3'>
-          <input id='_id' className='form-control'
-          placeholder='id'
-          onKeyUp={this.keyHandler}
-          value={this.props._id}
-          type="hidden"
-          />
-          <br/>
-        </Grid>
-        <Grid cols='12 6 3'>
             <input id='name' className='form-control'
             placeholder='Nome do Produto'
             onChange={this.props.changeName}
@@ -80,6 +71,15 @@ class ProductForm extends Component {
           />
             <br/>
             <br/>
+        </Grid>
+        <Grid cols='12 6 3'>
+          <input id='_id' className='form-control'
+            placeholder='id'
+            onKeyUp={this.keyHandler}
+            value={this.props._id}
+            type="hidden"
+          />
+          <br/>
         </Grid>
       </div>
     )

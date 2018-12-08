@@ -18,6 +18,7 @@ export default props => (
 
       <MenuTree label='Vendas' icon='dollar'>
         <MenuItem path='#/sale' label='Manutenção de Vendas' icon='credit-card'/>
+        <MenuItem path='#/cycles' label='Ciclo de Vendas' icon='credit-card'/>
       </MenuTree>
     </ul>
   </div>
