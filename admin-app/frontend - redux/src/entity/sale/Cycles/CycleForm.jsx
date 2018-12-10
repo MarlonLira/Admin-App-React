@@ -31,7 +31,7 @@ render() {
           <Field name='year' component={LabelAndInput} type='number' readOnly={readOnly}
             label='Ano' cols='12 4' placeholder='Informe o ano' />
           <Summary credit={sumOfCredits} debt={sumOfDebts} />
-          <ItemList cols='12 6' list={credits} readOnly={readOnly}
+          <ItemList cols='12 5' list={credits} readOnly={readOnly}
             field='credits' legend='Créditos' />
           <ItemList cols='12 6' list={debts} readOnly={readOnly}
             field='debts' legend='Débitos' showStatus={true} />

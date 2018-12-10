@@ -12,7 +12,9 @@ class Sale extends Component {
   componentWillMount() {
     this.props.getSummary()
   }
+
   render() {
+    console.log(this.props)
     const { credit, debt } = this.props.summary
     return (
       <div> 
@@ -32,6 +34,11 @@ class Sale extends Component {
   }
 }
 
-const mapStateToProps = state => ({summary: state.sale.summary})
+// const mapStateToProps = state => ({summary: state.sale.summary})
+const mapStateToProps = state => {
+  console.log('>>>>', state)
+  return {summary: state.sale.summary}
+}
+
 const mapDispatchToProps = dispatch => bindActionCreators({getSummary}, dispatch)
 export default connect(mapStateToProps, mapDispatchToProps)(Sale)

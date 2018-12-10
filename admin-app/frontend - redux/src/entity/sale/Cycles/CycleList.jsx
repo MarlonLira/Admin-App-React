@@ -11,16 +11,16 @@ class CycleList extends Component {
 
   renderRows() {
     const list = this.props.list || []
-  return list.map(bc => (
-    <tr key={bc._id}>
-      <td>{bc.name}</td>
-      <td>{bc.month}</td>
-      <td>{bc.year}</td>
+  return list.map(Cycle => (
+    <tr key={Cycle._id}>
+      <td>{Cycle.name}</td>
+      <td>{Cycle.month}</td>
+      <td>{Cycle.year}</td>
       <td>
-        <button className='btn btn-warning' onClick={() => this.props.showUpdate(bc)}>
+        <button className='btn btn-warning' onClick={() => this.props.showUpdate(Cycle)}>
           <i className='fa fa-pencil'></i>
         </button>
-        <button className='btn btn-danger' onClick={() => this.props.showDelete(bc)}>
+        <button className='btn btn-danger' onClick={() => this.props.showDelete(Cycle)}>
           <i className='fa fa-trash-o'></i>
         </button>
       </td>
